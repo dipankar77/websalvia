@@ -5,20 +5,18 @@ on:
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉 Deploy via SFTP
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+
+    - name: 📂 Upload files via SFTP
+      uses: appleboy/scp-action@master
       with:
-        server: access-5017133194.webspace-host.com
+        host: ${{ secrets.FTP_SERVER }}  # Define this in GitHub Secrets
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        protocol: sftp  # Since you are using port 22 (SFTP)
-        port: 22  # Use 22 for SFTP instead of 21 (FTP)
-        server-dir: /websalvia/  # Define your remote folder
-        passive: true
-        timeout: 60000
+        port: 22  # SFTP uses port 22
+        source: "."  # Local project directory
+        target: "/websalvia/"  # Remote directory where files should go
