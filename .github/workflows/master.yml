@@ -26,5 +26,5 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         port: 22
         source: "."  # Upload all files
-        target: "/"  # Ensure correct remote directory
+        target: "/kunden/homepages/32/d4298770761/htdocs/websalvia/"  # Ensure correct remote directory
         strip_components: 1  # Remove leading directories (if needed)
