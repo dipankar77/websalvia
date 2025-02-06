@@ -17,3 +17,8 @@ jobs:
         server: access-5017133194.webspace-host.com
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        protocol: sftp  # Since you are using port 22 (SFTP)
+        port: 22  # Use 22 for SFTP instead of 21 (FTP)
+        server-dir: /websalvia/  # Define your remote folder
+        passive: true
+        timeout: 60000
