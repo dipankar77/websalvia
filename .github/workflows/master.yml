@@ -18,5 +18,3 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 22  # SFTP uses port 22
-        source: "."  # Local project directory
-        target: "/websalvia/"  # Remote directory where files should go
