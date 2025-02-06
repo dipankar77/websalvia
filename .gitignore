@@ -1,0 +1,35 @@
+# Exclude stack dump files
+*.stackdump
+
+# Exclude log files
+*.log
+
+# Exclude modal directory
+modal/error_log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled binaries and executables
+*.exe
+*.out
+*.o
+*.obj
+
+# Ignore temporary and backup files
+*.tmp
+*.swp
+*.bak
+*.~*
+
+# Ignore dependency directories
+node_modules/
+vendor/
+venv/
+__pycache__/
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+*.iml
