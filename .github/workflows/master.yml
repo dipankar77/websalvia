@@ -19,12 +19,12 @@ jobs:
       run: ls -R  # Print files before deploying
 
     - name: 📂 Upload files via SFTP
-      uses: appleboy/scp-action@master
+      uses: appleboy/sftp-action@master  # Use SFTP instead of SCP
       with:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 22
         source: "."  # Upload all files
-        target: "/kunden/homepages/32/d4298770761/htdocs/websalvia/"  # Ensure correct remote directory
-        strip_components: 1  # Remove leading directories (if needed)
+        target: "/htdocs/websalvia/"
+        overwrite: true  # Ensure old files are replaced
