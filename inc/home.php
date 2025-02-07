@@ -10,8 +10,8 @@
                 </div>
             </div> -->
             <div class="about_title">
-                <h3>Welcome to Websalvia Solutions!</h3>
-                <span>Transforming Ideas into Powerful Solutions</span>
+                <h3>Websalvia Solutions!</h3>
+                <span>Transforming ideas into powerful solutions</span>
             </div>
             <div class="about_text">
                 <p>Websalvia Solutions is a premier provider of web and mobile development services. With our expert team of developers and designers, we bring your ideas to life with cutting-edge technologies and innovative solutions. Whether you need a full stack application, an engaging front-end interface, a robust back-end system, an e-commerce website, a content management system, or a mobile app, we have the expertise to deliver exceptional results.</p>
