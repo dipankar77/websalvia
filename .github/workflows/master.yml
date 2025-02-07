@@ -19,7 +19,7 @@ jobs:
       run: ls -R  # Print files before deploying
 
     - name: 📂 Upload files via SFTP
-      uses: appleboy/sftp-action@master  # Use SFTP instead of SCP
+      uses: appleboy/scp-action@v0.1.7  
       with:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
