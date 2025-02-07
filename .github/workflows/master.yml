@@ -3,28 +3,36 @@ on:
     branches:
       - master
 
-name: 🚀 Deploy website on push
+name: 🚀 Deploy website to IONOS on push
 
 jobs:
   web-deploy:
     name: 🎉 Deploy via SFTP
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Ensure all files are fetched
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure all files are fetched
 
-    - name: 🔍 Debug file structure
-      run: ls -R  # Print files before deploying
+      - name: 🔍 Debug file structure
+        run: ls -R  # Print files before deploying
 
-    - name: 📂 Upload files via SFTP
-      uses: appleboy/scp-action@v0.1.7  
-      with:
-        host: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        port: 22
-        source: "."  # Upload all files
-        target: "/htdocs/websalvia/"
-        overwrite: true  # Ensure old files are replaced
+      - name: 🔑 Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H access-5017133194.webspace-host.com >> ~/.ssh/known_hosts
+
+      - name: 📂 Upload files via SFTP
+        uses: wangyoucao577/sftp-action@v1
+        with:
+          host: access-5017133194.webspace-host.com
+          username: a2645517
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          localPath: "./"
+          remotePath: "/kunden/homepages/32/d4298770761/htdocs/websalvia/"
+          deleteRemoteFiles: false
+          verbose: true  # Enable debugging
