@@ -10,7 +10,7 @@
                 </div>
             </div> -->
             <div class="about_title">
-                <h3>Welcome to Websalvia Solutions1234!</h3>
+                <h3>Welcome to Websalvia Solutions!</h3>
                 <span>Transforming Ideas into Powerful Solutions</span>
             </div>
             <div class="about_text">
