@@ -15,9 +15,6 @@ jobs:
         with:
           fetch-depth: 0  # Ensure all files are fetched
 
-      - name: 🔍 Debug file structure
-        run: ls -R  # Print files before deploying
-
       - name: 🔑 Setup SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -26,13 +23,12 @@ jobs:
           ssh-keyscan -H access-5017133194.webspace-host.com >> ~/.ssh/known_hosts
 
       - name: 📂 Upload files via SFTP
-        uses: wangyoucao577/sftp-action@v1
+        uses: appleboy/scp-action@master
         with:
           host: access-5017133194.webspace-host.com
           username: a2645517
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          localPath: "./"
-          remotePath: "/kunden/homepages/32/d4298770761/htdocs/websalvia/"
-          deleteRemoteFiles: false
-          verbose: true  # Enable debugging
+          source: "./"
+          target: "/kunden/homepages/32/d4298770761/htdocs/websalvia/"
+          overwrite: true
