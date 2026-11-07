@@ -33,3 +33,6 @@ __pycache__/
 .vscode/
 .idea/
 *.iml
+
+# Local-only reports (not for publishing)
+local-reports/
