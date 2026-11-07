@@ -1,7 +1,7 @@
 name: 🌐 Deploy static site to GitHub Pages
 
 # Publishes the contents of static-site/ to GitHub Pages.
-# This workflow is independent of master.yml (IONOS SFTP deploy), which is left untouched.
+# This is the sole deployment workflow for the site (the legacy IONOS SFTP workflow has been retired).
 
 on:
   push:
